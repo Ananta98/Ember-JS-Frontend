@@ -1,0 +1,34 @@
+<GeneralContainer>
+  <h1>Teams</h1>
+  <LinkTo @route="edit-team">
+    <button type="button" class="btn btn-primary mt-3 mb-3">Add Team</button>
+  </LinkTo>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.model as |team|}}
+        <tr>
+          <th scope="row">{{team.id}}</th>
+          <td>{{team.name}}</td>
+          <td>{{team.description}}</td>
+          <td class="d-flex gap-1">
+            <LinkTo @route="details" @model={{team.id}}>
+              <button type="button" class="btn btn-info">Info</button>
+            </LinkTo>
+            <LinkTo @route="edit-team.team" @model={{team.id}}>
+              <button type="button" class="btn btn-warning">Edit</button>
+            </LinkTo>
+            <button type="button" class="btn btn-danger" {{on "click" (fn this.deleteTeam team.id)}}>Delete</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</GeneralContainer>
