@@ -3,9 +3,11 @@ import { inject as service } from '@ember/service';
 
 export default class DetailsRoute extends Route {
   @service('request') request;
+  teamId;
 
   async model(params) {
     const { team_id } = params;
+    this.teamId = team_id;
 
     const membersDetails = await this.request.fetchGet(
       `http://localhost:3000/api/Teams/${team_id}/members`,
@@ -21,5 +23,10 @@ export default class DetailsRoute extends Route {
     };
 
     return result;
+  }
+
+  setupController(controller, model) {
+    super.setupController(controller, model);
+    controller.set('teamId', this.teamId);
   }
 }

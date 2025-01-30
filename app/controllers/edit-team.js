@@ -13,7 +13,7 @@ export default class FormTeamController extends Controller {
   @action
   async submitTeam(event) {
     event.preventDefault();
-    if (this.teamId) {
+    if (this.memberId) {
       await this.request.fetchPut(
         'http://localhost:3000/api/Teams',
         this.teamId,

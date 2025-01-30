@@ -23,13 +23,13 @@ export default class FormMemberController extends Controller {
   @action
   async submitMember(event) {
     event.preventDefault();
-    if (this.member_id) {
+    if (this.memberId) {
       await this.request.fetchPut(
-        `http://localhost:3000/api/Members/${this.member_id}`,
+        `http://localhost:3000/api/Members/`, this.memberId,
         {
           name: this.name,
           role: this.role,
-          teamId: 1,
+          teamId: this.teamId,
         },
       );
     } else {
@@ -39,6 +39,6 @@ export default class FormMemberController extends Controller {
         teamId: this.teamId,
       });
     }
-    this.router.transitionTo(`/details/${this.teamId}`);
+    this.router.transitionTo('details', this.teamId);
   }
 }

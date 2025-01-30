@@ -7,11 +7,11 @@ export default class DetailsController extends Controller {
   @service('request') request;
 
   @action
-  async deleteMember(memberId, teamId) {
+  async deleteMember(memberId) {
     await this.request.fetchDelete(
       `http://localhost:3000/api/Members`,
       memberId,
     );
-    this.router.transitionTo('');  
+    window.location.reload();
   }
 }
