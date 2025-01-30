@@ -1,5 +1,5 @@
 <GeneralContainer>
-  <h1>Member Form</h1>
+  <h1>{{if this.model.id 'Edit' 'Add'}}</h1>
   <form {{on "submit" this.submitMember}}>
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
@@ -14,5 +14,8 @@
       </select>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <LinkTo @route="details" @model={{this.model.teamId}}>
+        <button type="button" class="btn btn-warning">Cancel</button>
+    </LinkTo>
   </form>
 </GeneralContainer>

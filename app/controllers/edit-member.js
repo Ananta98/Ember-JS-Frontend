@@ -36,9 +36,9 @@ export default class FormMemberController extends Controller {
       await this.request.fetchPost('http://localhost:3000/api/Members', {
         name: this.name,
         role: this.role,
-        teamId: 1,
+        teamId: this.teamId,
       });
     }
-    this.router.transitionTo('');
+    this.router.transitionTo(`/details/${this.teamId}`);
   }
 }
