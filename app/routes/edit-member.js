@@ -28,6 +28,8 @@ export default class MembersEditMemberRoute extends Route {
     }
     if (this.role) {
       controller.set('role', this.role);
+    } else {
+      controller.set('role', 'Developer');
     }
   }
 }
