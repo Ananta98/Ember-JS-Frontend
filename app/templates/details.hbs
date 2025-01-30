@@ -25,7 +25,7 @@
             <LinkTo @route="edit-member.edit" @model={{member.id}}>
               <button type="button" class="btn btn-warning">Edit</button>
             </LinkTo>
-            <button type="button" class="btn btn-danger" {{on "click" (fn this.deleteMember member.id)}}>Delete</button>
+            <button type="button" class="btn btn-danger" {{on "click" (fn this.deleteMember member.id member.teamId)}}>Delete</button>
           </td>
         </tr>
       {{/each}}
