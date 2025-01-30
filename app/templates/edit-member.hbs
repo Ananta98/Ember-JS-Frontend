@@ -8,14 +8,14 @@
     <div class="mb-3">
       <label for="name" class="form-label">Role</label>
       <select class="form-select" aria-label="role" {{on "change" this.updateRole}} value={{this.model.role}}>
-        <option value="Developer" selected>Developer</option>
-        <option value="Designer">Designer</option>
-        <option value="Marketing">Marketing</option>
+        <option value="Developer" selected={{equals this.role 'Developer'}}>Developer</option>
+        <option value="Designer" selected={{equals this.role 'Designer'}}>Designer</option>
+        <option value="Marketing" selected={{equals this.role 'Marketing'}}>Marketing</option>
       </select>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     <LinkTo @route="details" @model={{this.model.teamId}}>
-        <button type="button" class="btn btn-warning">Cancel</button>
+      <button type="button" class="btn btn-warning">Cancel</button>
     </LinkTo>
   </form>
 </GeneralContainer>

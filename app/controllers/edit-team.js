@@ -14,10 +14,14 @@ export default class FormTeamController extends Controller {
   async submitTeam(event) {
     event.preventDefault();
     if (this.teamId) {
-      await this.request.fetchPut('http://localhost:3000/api/Teams', this.teamId, {
-        name: this.name,
-        description: this.description,
-      });
+      await this.request.fetchPut(
+        'http://localhost:3000/api/Teams',
+        this.teamId,
+        {
+          name: this.name,
+          description: this.description,
+        },
+      );
     } else {
       await this.request.fetchPost('http://localhost:3000/api/Teams', {
         name: this.name,

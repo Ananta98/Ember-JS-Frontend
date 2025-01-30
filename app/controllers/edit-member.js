@@ -8,7 +8,7 @@ export default class FormMemberController extends Controller {
   @service router;
 
   @tracked name;
-  @tracked role = "Developer";
+  @tracked role;
 
   @action
   updateName(event) {
@@ -30,7 +30,7 @@ export default class FormMemberController extends Controller {
           name: this.name,
           role: this.role,
           teamId: 1,
-        }
+        },
       );
     } else {
       await this.request.fetchPost('http://localhost:3000/api/Members', {

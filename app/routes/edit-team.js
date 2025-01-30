@@ -13,8 +13,8 @@ export default class TeamsEditTeamsRoute extends Route {
       const result = await this.request.fetchGet(
         `http://localhost:3000/api/Teams/${teamId}`,
       );
-      this.teamName = result.name
-      this.teamDescription = result.description
+      this.teamName = result.name;
+      this.teamDescription = result.description;
       return result;
     }
     return {};
