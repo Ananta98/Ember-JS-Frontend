@@ -23,6 +23,9 @@ export default class FormMemberController extends Controller {
   @action
   async submitMember(event) {
     event.preventDefault();
+    if (this.name === '' || this.role === '') {
+      return;
+    }
     if (this.memberId) {
       await this.request.fetchPut(
         `http://localhost:3000/api/Members/`, this.memberId,

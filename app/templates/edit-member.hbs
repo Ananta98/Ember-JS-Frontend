@@ -3,11 +3,11 @@
   <form {{on "submit" this.submitMember}}>
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
-      <input type="name" class="form-control" id="name" aria-describedby="name" value={{this.model.name}} {{on "input" this.updateName}} />
+      <input type="name" class="form-control" id="name" aria-describedby="name" value={{this.model.name}} {{on "input" this.updateName}} required />
     </div>
     <div class="mb-3">
       <label for="name" class="form-label">Role</label>
-      <select class="form-select" aria-label="role" {{on "change" this.updateRole}} value={{this.model.role}}>
+      <select class="form-select" aria-label="role" {{on "change" this.updateRole}} value={{this.model.role}} required>
         <option value="Developer" selected={{equals this.role 'Developer'}}>Developer</option>
         <option value="Designer" selected={{equals this.role 'Designer'}}>Designer</option>
         <option value="Marketing" selected={{equals this.role 'Marketing'}}>Marketing</option>

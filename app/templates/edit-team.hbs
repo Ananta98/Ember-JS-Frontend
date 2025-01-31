@@ -3,7 +3,7 @@
   <form {{on "submit" this.submitTeam}}>
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
-      <input type="name" class="form-control" id="name" aria-describedby="name" value={{this.model.name}} {{on "input" this.updateName}} />
+      <input type="name" class="form-control" id="name" aria-describedby="name" value={{this.model.name}} {{on "input" this.updateName}} required/>
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
