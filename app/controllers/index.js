@@ -9,6 +9,6 @@ export default class IndexController extends Controller {
   @action
   async deleteTeam(teamId) {
     await this.request.fetchDelete(`http://localhost:3000/api/Teams`, teamId);
-    this.router.transitionTo('');
+    window.location.reload();
   }
 }
